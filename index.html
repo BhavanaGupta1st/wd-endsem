@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bhavana Gupta SAU/CS/BTECH(CSE/2024/26) Exam 2</title>
+</head>
+<body style="margin: 0; font-family: Arial, sans-serif; background-color: #f5f5f5;">
+
+  <!-- Title Bar -->
+  <div style="background-color: #333; color: white; padding: 20px; text-align: center;">
+    <h1 style="margin: 0;">B.Tech 2nd Sem Web Development Exam 2</h1>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div style="background-color: #444; padding: 10px 0; text-align: center;">
+    <a href="#form" style="color: white; margin: 0 15px; text-decoration: none;">Form</a>
+    <a href="#circle-color-change" style="color: white; margin: 0 15px; text-decoration: none;">Circle Color Change</a>
+    <a href="#text-reversal" style="color: white; margin: 0 15px; text-decoration: none;">Text Reversal</a>
+    <a href="#images" style="color: white; margin: 0 15px; text-decoration: none;">Images</a>
+    <a href="#slider" style="color: white; margin: 0 15px; text-decoration: none;">Slider</a>
+  </div>
+
+  <!-- Main Container -->
+  <div style="max-width: 800px; margin: auto; padding: 30px; background-color: white; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 10px;">
+
+    <!-- Form Section -->
+    <section id="form" style="text-align: left; margin-bottom: 50px;">
+      <h2>Form</h2>
+      <label>Student Name:</label><br>
+      <input type="text" id="name" style="width: 100%; margin-bottom: 10px;"><br>
+      <label>Student Roll No:</label><br>
+      <input type="text" id="roll" style="width: 100%; margin-bottom: 10px;"><br>
+      <button onclick="showWelcome()">Submit</button>
+      <p id="welcomeMsg"></p>
+    </section>
+
+    <!-- Circle Color Changing Section -->
+    <section id="circle-color-change" style="text-align: center; margin-bottom: 50px;">
+      <h2>Color Changing Circle (click to change color)</h2>
+      <div id="circle" onclick="changeColor()" style="width: 100px; height: 100px; border-radius: 50%; background-color: red; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.4); cursor: pointer;"></div>
+    </section>
+
+    <!-- Text Reverseal Section -->
+    <section id="text-reversal" style="text-align: center; margin-bottom: 50px;">
+      <h2>Text Reversal</h2>
+      <input type="text" id="textInput" style="width: 60%;">
+      <button onclick="reverseText()">Reverse</button>
+      <p id="reversedText"></p>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section id="images" style="text-align: center; margin-bottom: 50px;">
+      <h2>Image Gallery</h2>
+      <img src="images/pic92.jpg" style="width: 200px; margin: 10px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+      <img src="images/banner3.jpg" style="width: 200px; margin: 10px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+      <img src="images/pic111.jpg" style="width: 200px; margin: 10px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+    </section>
+
+    <!-- Image Slider Section -->
+    <section id="slider" style="text-align: center; margin-bottom: 50px;">
+      <h2>Image Slider</h2>
+      <img id="sliderImg" src="images/pic92.jpg" style="width: 100%; max-width: 500px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; background-color: #333; color: white; padding: 15px;">
+    &copy; 2025 Web Development Examination 
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Welcome Message
+    function showWelcome() {
+      const name = document.getElementById("name").value;
+      const roll = document.getElementById("roll").value;
+      document.getElementById("welcomeMsg").innerText = `Welcome ${name}, ${roll}.`;
+    }
+
+    // Color Changing Circle
+    function changeColor() {
+      const colors = ["red", "green", "blue", "orange", "purple", "yellow"];
+      const circle = document.getElementById("circle");
+      let newColor;
+      do {
+        newColor = colors[Math.floor(Math.random() * colors.length)];
+      } while (newColor === circle.style.backgroundColor);
+      circle.style.backgroundColor = newColor;
+    }
+
+    // Reverse Text
+    function reverseText() {
+      const text = document.getElementById("textInput").value;
+      const reversed = text.split("").reverse().join("");
+      document.getElementById("reversedText").innerText = reversed;
+    }
+
+    // Image Slider
+    const images = [
+      "images/pic92.jpg",
+      "images/banner3.jpg",
+      "images/pic111.jpg",
+      "images/pic11.jpg"
+    ];
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      document.getElementById("sliderImg").src = images[index];
+    }, 5000);
+  </script>
+</body>
+</html>
